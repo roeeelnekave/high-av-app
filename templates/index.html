@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Test</title>
+    <script>
+        function fetchUsage() {
+            fetch('/usage')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cpu-usage').innerText = `CPU Usage: ${data.cpu}%`;
+                    document.getElementById('memory-usage').innerText = `Memory Usage: ${data.memory}%`;
+                })
+                .catch(error => console.error('Error fetching usage data:', error));
+        }
+
+        // Fetch usage data every 2 seconds
+        setInterval(fetchUsage, 2000);
+    </script>
+</head>
+<body>
+    <h1>Stress Test Form</h1>
+    <form action="/" method="POST">
+        <input type="text" name="data" placeholder="Enter some data" required>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Submissions</h2>
+    <a href="/submissions">View All Submissions</a>
+    
+    <h2>Simulate Users</h2>
+    <form action="/simulate/10" method="GET">
+        <button type="submit">Simulate 10 Users</button>
+    </form>
+
+    <h2>System Usage</h2>
+    <div id="usage">
+        <p id="cpu-usage">CPU Usage: 0%</p>
+        <p id="memory-usage">Memory Usage: 0%</p>
+    </div>
+</body>
+</html>

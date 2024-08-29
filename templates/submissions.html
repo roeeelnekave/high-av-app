@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissions</title>
+</head>
+<body>
+    <h1>All Submissions</h1>
+    <ul>
+        {% for submission in submissions %}
+            <li>{{ submission[1] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Form</a>
+</body>
+</html>
