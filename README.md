@@ -1,3 +1,4 @@
+# Setup highly available faultoularant application using ec2 asg, alb, rds with terraform, ansible and github actions
 # Prerequisites 
 
 - Ansible
